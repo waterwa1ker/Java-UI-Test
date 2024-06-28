@@ -20,6 +20,8 @@ public class MainPage {
     public final static String USER_NAME_CLASS = "user_name";
     public final static String AUTH_BUTTON_AFTER_CLASS = "auth";
     public final static String ERROR_MESSAGE_AUTH_CLASS = "registration_confirm_text";
+    public final static String LOGOUT_BUTTON_CLASS = "sign_out_bttn";
+    public final static String REGISTRATION_CONTENT_CLASS = "registration_content";
 
     public final static String EMAIL = ConfProperties.getProperty("email");
     public final static String PASSWORD = ConfProperties.getProperty("password");
@@ -39,7 +41,6 @@ public class MainPage {
     public WebElement getWebElementById(String id) {
         return driver.findElement(By.id(id));
     }
-
 
     public WebElement getUserName() {
         driverWait.until(ExpectedConditions.visibilityOfElementLocated(By.className(USER_NAME_CLASS)));
