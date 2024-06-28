@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <selenum.java.version>3.14.0</selenum.java.version>
+        <selenum.version>4.22.0</selenum.version>
         <junit.version>4.13.2</junit.version>
     </properties>
 
@@ -17,8 +17,9 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>${selenum.java.version}</version>
+            <version>${selenum.version}</version>
         </dependency>
+
 
         <dependency>
             <groupId>junit</groupId>

@@ -1,8 +1,10 @@
-package com.example;
+package com.example.config;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.util.Properties;
 
 public class ConfProperties {
@@ -14,7 +16,7 @@ public class ConfProperties {
         try {
             fileInputStream = new FileInputStream("./src/test/resources/conf.properties");
             properties = new Properties();
-            properties.load(fileInputStream);
+            properties.load(new InputStreamReader(fileInputStream, Charset.forName("UTF-8")));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -30,6 +32,8 @@ public class ConfProperties {
         }
     }
 
-    public static String getProperty(String key) { return properties.getProperty(key); }
+    public static String getProperty(String key) {
+        return properties.getProperty(key);
+    }
 
 }
