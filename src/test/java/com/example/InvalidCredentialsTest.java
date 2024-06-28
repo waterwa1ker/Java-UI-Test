@@ -9,9 +9,9 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class SuccessfulAuthorizationTest {
+public class InvalidCredentialsTest {
 
-    private final static String USER_NAME = "Адель Ибрагимов";
+    private final static String ERROR_MESSAGE = "Неправильный логин или пароль";
 
     private WebDriver driver;
     private MainPage mainPage;
@@ -25,7 +25,7 @@ public class SuccessfulAuthorizationTest {
     }
 
     @Test
-    public void successfulLoginTest() {
+    public void invalidCredentialsTest() {
         step1();
         step2();
         step3();
@@ -37,17 +37,16 @@ public class SuccessfulAuthorizationTest {
         mainPage.getWebElementByClass(MainPage.ALREADY_REGISTERED_CLASS).click();
     }
 
-    //Заполняем данные и нажимаем "Войти"
+    //Вводим неправильные данные
     private void step2() {
-        mainPage.getWebElementById(MainPage.EMAIL_INPUT_ID).sendKeys(MainPage.EMAIL);
+        mainPage.getWebElementById(MainPage.EMAIL_INPUT_ID).sendKeys(MainPage.EMAIL + "1");
         mainPage.getWebElementById(MainPage.PASSWORD_INPUT_ID).sendKeys(MainPage.PASSWORD);
         mainPage.getWebElementByClass(MainPage.SUBMIT_BUTTON_CLASS).click();
     }
 
-    //Проверяем данные пользователя
+    //Проверяем наличие ошибки
     private void step3() {
-        mainPage.getAuthButtonAfter().click();
-        Assert.assertEquals(USER_NAME, mainPage.getUserName().getText());
+        Assert.assertEquals(mainPage.getErrorMessage().getText(), ERROR_MESSAGE);
     }
 
     @After
@@ -56,5 +55,7 @@ public class SuccessfulAuthorizationTest {
             driver.quit();
         }
     }
+
+
 
 }

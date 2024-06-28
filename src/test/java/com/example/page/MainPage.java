@@ -19,10 +19,10 @@ public class MainPage {
     public final static String SUBMIT_BUTTON_CLASS = "registration-button";
     public final static String USER_NAME_CLASS = "user_name";
     public final static String AUTH_BUTTON_AFTER_CLASS = "auth";
+    public final static String ERROR_MESSAGE_AUTH_CLASS = "registration_confirm_text";
 
     public final static String EMAIL = ConfProperties.getProperty("email");
     public final static String PASSWORD = ConfProperties.getProperty("password");
-    public final static String USER_NAME = ConfProperties.getProperty("username");
 
     private WebDriver driver;
     private WebDriverWait driverWait;
@@ -49,6 +49,11 @@ public class MainPage {
     public WebElement getAuthButtonAfter() {
         driverWait.until(ExpectedConditions.visibilityOfElementLocated(By.className(AUTH_BUTTON_AFTER_CLASS)));
         return getWebElementByClass(AUTH_BUTTON_AFTER_CLASS);
+    }
+
+    public WebElement getErrorMessage() {
+        driverWait.until(ExpectedConditions.visibilityOfElementLocated(By.className(ERROR_MESSAGE_AUTH_CLASS)));
+        return getWebElementByClass(ERROR_MESSAGE_AUTH_CLASS);
     }
 
 
