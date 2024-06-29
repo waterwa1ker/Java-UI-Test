@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class MainPage {
+public class MainPage implements Page{
 
     public final static String AUTH_BUTTON_CLASS = "header-login-icon";
     public final static String ALREADY_REGISTERED_CLASS = "blue-text";
@@ -22,6 +22,7 @@ public class MainPage {
     public final static String ERROR_MESSAGE_AUTH_CLASS = "registration_confirm_text";
     public final static String LOGOUT_BUTTON_CLASS = "sign_out_bttn";
     public final static String REGISTRATION_CONTENT_CLASS = "registration_content";
+    public final static String USER_PROFILE_ROUTE_CLASS = "router_link_user";
 
     public final static String EMAIL = ConfProperties.getProperty("email");
     public final static String PASSWORD = ConfProperties.getProperty("password");

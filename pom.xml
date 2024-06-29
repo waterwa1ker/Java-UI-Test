@@ -11,6 +11,8 @@
     <properties>
         <selenum.version>4.22.0</selenum.version>
         <junit.version>4.13.2</junit.version>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
     </properties>
 
     <dependencies>
